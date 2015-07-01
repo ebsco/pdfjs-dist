@@ -22,8 +22,8 @@ if (typeof PDFJS === 'undefined') {
   (typeof window !== 'undefined' ? window : this).PDFJS = {};
 }
 
-PDFJS.version = '1.1.114';
-PDFJS.build = '3fd44fd';
+PDFJS.version = '1.1.118';
+PDFJS.build = '8af3e65';
 
 (function pdfjsWrapper() {
   // Use strict in our context only - users might not want it
@@ -1759,6 +1759,13 @@ PDFJS.openExternalLinksInNewWindow = (
     false : PDFJS.openExternalLinksInNewWindow);
 
 /**
+ * Unique identifier for each PDF document loaded in a single page
+ * @var {number}
+ */
+PDFJS.documentID = (PDFJS.documentID === undefined ?
+                   0 : PDFJS.documentID);
+
+/**
  * Document initialization / loading parameters object.
  *
  * @typedef {Object} DocumentInitParameters
@@ -1816,6 +1823,8 @@ PDFJS.getDocument = function getDocument(src,
                                          pdfDataRangeTransport,
                                          passwordCallback,
                                          progressCallback) {
+  PDFJS.documentID++;
+
   var task = new PDFDocumentLoadingTask();
 
   // Support of the obsolete arguments (for compatibility with API v1.0)
@@ -2861,7 +2870,8 @@ var WorkerTransport = (function WorkerTransportClosure() {
         cMapPacked: PDFJS.cMapPacked,
         disableFontFace: PDFJS.disableFontFace,
         disableCreateObjectURL: PDFJS.disableCreateObjectURL,
-        verbosity: PDFJS.verbosity
+        verbosity: PDFJS.verbosity,
+        documentID: PDFJS.documentID
       });
     },
 

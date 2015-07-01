@@ -1,6 +1,6 @@
 {
   "name": "pdfjs-dist",
-  "version": "1.1.114",
+  "version": "1.1.118",
   "description": "Generic build of Mozilla's PDF.js library.",
   "keywords": [
     "Mozilla",
@@ -12,6 +12,6 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla/pdfjs-dist"
+    "url": "https://github.com/ebsco/pdfjs-dist.git"
   }
 }

@@ -22,8 +22,8 @@ if (typeof PDFJS === 'undefined') {
   (typeof window !== 'undefined' ? window : this).PDFJS = {};
 }
 
-PDFJS.version = '1.1.114';
-PDFJS.build = '3fd44fd';
+PDFJS.version = '1.1.118';
+PDFJS.build = '8af3e65';
 
 (function pdfjsWrapper() {
   // Use strict in our context only - users might not want it
@@ -16772,7 +16772,7 @@ var Font = (function FontClosure() {
   Font.getFontID = (function () {
     var ID = 1;
     return function Font_getFontID() {
-      return String(ID++);
+      return PDFJS.documentID + "_" + String(ID++);
     };
   })();
 
@@ -34030,6 +34030,7 @@ var WorkerMessageHandler = PDFJS.WorkerMessageHandler = {
     });
 
     handler.on('GetDocRequest', function wphSetupDoc(data) {
+      PDFJS.documentID = data.documentID;
 
       var onSuccess = function(doc) {
         handler.send('GetDoc', { pdfInfo: doc });

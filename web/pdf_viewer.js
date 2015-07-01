@@ -414,10 +414,10 @@ var PresentationModeState = {
 };
 
 var IGNORE_CURRENT_POSITION_ON_ZOOM = false;
-var DEFAULT_CACHE_SIZE = 10;
+var DEFAULT_CACHE_SIZE = 5;
 
 
-var CLEANUP_TIMEOUT = 30000;
+var CLEANUP_TIMEOUT = 500;
 
 var RenderingStates = {
   INITIAL: 0,

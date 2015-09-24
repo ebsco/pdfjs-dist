@@ -22,12 +22,12 @@ if (typeof PDFJS === 'undefined') {
   (typeof window !== 'undefined' ? window : this).PDFJS = {};
 }
 
-PDFJS.version = '1.1.118';
-PDFJS.build = '8af3e65';
+PDFJS.version = '1.1.119';
+PDFJS.build = '3a2c868';
 
 (function pdfjsWrapper() {
   // Use strict in our context only - users might not want it
-  'use strict';
+  
 
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
@@ -48,7 +48,7 @@ PDFJS.build = '8af3e65';
 /* globals Cmd, ColorSpace, Dict, MozBlobBuilder, Name, PDFJS, Ref, URL,
            Promise */
 
-'use strict';
+
 
 var globalScope = (typeof window === 'undefined') ? this : window;
 
@@ -39163,7 +39163,7 @@ var bidi = PDFJS.bidi = (function bidiClosure() {
  */
 /* globals Uint32ArrayView */
 
-'use strict';
+
 
 var MurmurHash3_64 = (function MurmurHash3_64Closure (seed) {
   // Workaround for missing math precison in JS.
@@ -39311,7 +39311,7 @@ var MurmurHash3_64 = (function MurmurHash3_64Closure (seed) {
 if (!PDFJS.workerSrc && typeof document !== 'undefined') {
   // workerSrc is not set -- using last script url to define default location
   PDFJS.workerSrc = (function () {
-    'use strict';
+    
     var scriptTagContainer = document.body ||
                              document.getElementsByTagName('head')[0];
     var pdfjsSrc = scriptTagContainer.lastChild.src;
